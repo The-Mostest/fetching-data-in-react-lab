@@ -8,6 +8,9 @@ import StarshipCard from './StarshipCard.jsx'
 
 const StarshipList = (props) => {
 
+    const filteredShip = props.starships.filter(vessle => {
+        return vessle.name === props.filter
+    })
 
 
     return (
@@ -16,18 +19,23 @@ const StarshipList = (props) => {
 
 
 
-            {props.starships.map((vessle) => (
+{props.filter 
+? 
 
-                <div key={vessle.name}>
-                    
-                    <StarshipCard
-                        starships={vessle}
-                    />
+<ul>
+    {filteredShip.map((vessle) => {
+        return <StarshipCard key={vessle.name} starships={vessle} />
+    })}
+</ul>
 
-                </div>
+: 
 
-            ))}
-
+<ul>
+    {props.starships.map((vessle) => {
+        return <StarshipCard key={vessle.name} starships={vessle} />
+    })}
+</ul>
+}
 
 
         </>

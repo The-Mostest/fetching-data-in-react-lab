@@ -18,7 +18,6 @@ const StarshipSearch = (props) => {
         event.preventDefault()
         props.setFilter(findShip)
         setFindShip('')
-        console.log(findShip)
     }
 
 
