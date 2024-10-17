@@ -1,9 +1,10 @@
 // src/App.jsx
 import { useState } from "react";
 import { useEffect } from "react";
+import './App.css'
 
 import * as starshipService from './services/starshipService.js'
-// import StarshipSearch from './components/StarshipSearch.jsx'
+import StarshipSearch from './components/StarshipSearch.jsx'
 import StarshipList from './components/StarshipList.jsx'
 
 
@@ -17,6 +18,7 @@ const App = () => {
       const data = await starshipService.index()
       setStarships(data.results)
     }
+    fetchShipData()
   }, [])
 
 

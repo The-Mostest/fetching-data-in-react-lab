@@ -1,21 +1,21 @@
 
-const card = ({starships}) => {
+const card = (props) => {
 
 
     return (
         <>
-{console.log(starships)}
+
 
             <ul>
 
 
-                    {starships.starships.map((ship) => (
+                    {props.starships.map((ship) => (
 
                         <li key={ship.name}>
-                            <h2>name: {ship.name}</h2>
-                            {/* <p>Class: {ship.class}</p>
-                            <p>Manufacturer:{ship.manufacturer}</p>
-                            <p>Model:{ship.model}</p> */}
+                            <h2>{ship.name}</h2>
+                            <p>Class: {ship.vehicle_class}</p>
+                            <p>Manufacturer: {ship.manufacturer}</p>
+                            <p>Model: {ship.model}</p>
                         </li>
 
                     ))}
@@ -23,7 +23,7 @@ const card = ({starships}) => {
 
 
             </ul>
-<p>Working</p>
+
 
 
 

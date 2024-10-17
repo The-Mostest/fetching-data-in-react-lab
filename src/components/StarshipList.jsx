@@ -6,7 +6,7 @@ import StarshipCard from './StarshipCard.jsx'
 
 
 
-const StarshipList = ({starships}) => {
+const StarshipList = (props) => {
 
 
     return (
@@ -14,16 +14,9 @@ const StarshipList = ({starships}) => {
 
 <div className="StarList">
 <StarshipCard
-    starships={starships}
-    // name = {props.name}
-    // class = {props.class}
-    // model = {props.model}
-    // manufacturer = {props.manufacturer}
+    starships={props.starships}
 
 />
-
-
-
 
 
     
