@@ -12,8 +12,9 @@ import StarshipList from './components/StarshipList.jsx'
 const App = () => {
 
   const [starships, setStarships] = useState([])
+  const [filter, setFilter] = useState('')
 
-  useEffect( () => {
+  useEffect(() => {
     const fetchShipData = async () => {
       const data = await starshipService.index()
       setStarships(data.results)
@@ -25,11 +26,17 @@ const App = () => {
 
 
   return (
+    <>
 
-<StarshipList 
-starships={starships}
-/>
-
+      <StarshipSearch
+        setFilter={setFilter}
+      />
+      <StarshipList
+        starships={starships}
+        filter = {filter}
+      />
+      
+    </>
   );
 }
 

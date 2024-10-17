@@ -1,5 +1,5 @@
 
-const card = (props) => {
+const card = ({ starships }) => {
 
 
     return (
@@ -8,19 +8,12 @@ const card = (props) => {
 
             <ul>
 
-
-                    {props.starships.map((ship) => (
-
-                        <li key={ship.name}>
-                            <h2>{ship.name}</h2>
-                            <p>Class: {ship.vehicle_class}</p>
-                            <p>Manufacturer: {ship.manufacturer}</p>
-                            <p>Model: {ship.model}</p>
-                        </li>
-
-                    ))}
-
-
+                <li key={starships.name}>
+                    <h2>{starships.name}</h2>
+                    <p>Class: {starships.vehicle_class}</p>
+                    <p>Manufacturer: {starships.manufacturer}</p>
+                    <p>Model: {starships.model}</p>
+                </li>
 
             </ul>
 

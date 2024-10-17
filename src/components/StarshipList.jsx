@@ -9,28 +9,24 @@ import StarshipCard from './StarshipCard.jsx'
 const StarshipList = (props) => {
 
 
+
     return (
         <>
 
-<div className="StarList">
-<StarshipCard
-    starships={props.starships}
-
-/>
-
-
-    
-</div>
 
 
 
+            {props.starships.map((vessle) => (
 
+                <div key={vessle.name}>
+                    
+                    <StarshipCard
+                        starships={vessle}
+                    />
 
+                </div>
 
-
-
-
-
+            ))}
 
 
 
