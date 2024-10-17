@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { useState } from "react";
+import { useEffect } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import * as starshipService from './services/starshipService.js'
+// import StarshipSearch from './components/StarshipSearch.jsx'
+import StarshipList from './components/StarshipList.jsx'
+
+
+
+const App = () => {
+
+  const [starships, setStarships] = useState([])
+
+  useEffect( () => {
+    const fetchShipData = async () => {
+      const data = await starshipService.index()
+      setStarships(data.results)
+    }
+  }, [])
+
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+<StarshipList 
+starships={starships}
+/>
+
+  );
 }
 
 export default App
+
+
+//ToDo  ===== Display starship cards on render and number of results
+
+//ToDo  ===== Display - name, starship class, starship manufacturer, starship model on each starship card
+
+//ToDo  ===== Search Bar ABOVE the list to submit that changes the results to what to search
+
+//ToDo  ===== Submit a search and display results 
+
+//ToDo  ===== 
